@@ -1,0 +1,45 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+@gradeId = 1
+@gradeIdNotFound = -1
+
+GET http://{{host}}/grades/{{gradeId}} HTTP/1.1
+
+###
+
+
+GET http://{{host}}/grades/{{gradeIdNotFound}} HTTP/1.1
+
+
+###
+GET http://{{host}}/grades HTTP/1.1
+
+
+###
+POST http://{{host}}/grades HTTP/1.1
+Content-Type: application/json
+
+{
+    "data": {
+        "name": "Paul Smith",
+        "course": "CS572",
+        "grade": 97
+    }
+}
+
+
+###
+
+POST http://{{host}}/grades HTTP/1.1
+Content-Type: text/xml
+
+<data></data>
+
+###
+DELETE http://{{host}}/grades/{{gradeId}} HTTP/1.1
+
+
+####
+DELETE http://{{host}}/grades/{{gradeIdNotFound}} HTTP/1.1
