@@ -1,0 +1,40 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+GET http://{{host}}/lectures HTTP/1.1
+
+###
+
+@id1 = 5cabf40c93b94b153bcb416f
+GET http://{{host}}/lectures/{{id1}} HTTP/1.1
+
+###
+
+POST http://{{host}}/lectures HTTP/1.1
+Content-Type: application/json
+
+{
+    "data": {
+        "course": "CS572",
+        "lecture": "Node JS"
+    }
+}
+
+###
+@id2= 5cadd5bcbbe24f544b17ff22
+PUT http://{{host}}/lectures/{{id2}} HTTP/1.1
+Content-Type: application/json
+
+{
+    "data": {
+        "course": "CS572",
+        "lecture": "JavaScript"
+    }
+}
+
+###
+
+@id3 = 5cabf56268de76192ee57611
+DELETE http://{{host}}/lectures/{{id3}} HTTP/1.1

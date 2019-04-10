@@ -1,0 +1,7 @@
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+@q = Mongo DB
+POST http://{{host}}/search/{{q}} HTTP/1.1
