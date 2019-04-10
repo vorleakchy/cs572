@@ -1,0 +1,38 @@
+
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@contentType = application/json
+
+POST http://{{host}}/places HTTP/1.1
+Content-Type: application/json
+
+{
+    "data": [
+        {
+            "name": "Torino Pizza & Steak House",
+            "category": "Restaurant",
+            "location": [41.008861, -91.964512]
+        },
+        {
+            "name": "Pizza Ranch",
+            "category": "Restaurant",
+            "location": [41.006910, -91.977021]
+        },
+        {
+            "name": "McDonald's",
+            "category": "Restaurant",
+            "location": [41.007695, -91.982837]
+        }
+    ]
+}
+
+###
+
+// Search by category and name
+GET http://{{host}}/places/search?category=Restaurant&name=Pizza Ranch HTTP/1.1
+
+###
+
+// Search by category and nearest
+GET http://{{host}}/places/search?category=Restaurant HTTP/1.1
