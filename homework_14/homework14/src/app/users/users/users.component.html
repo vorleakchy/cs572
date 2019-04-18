@@ -1,0 +1,7 @@
+<h2>User List</h2>
+<a [routerLink]="['invalid_uuid']">Unknown User, It will redirect to error page</a>
+<ul>
+  <li *ngFor="let user of users">
+    <a [routerLink]="[user.login.uuid]">{{user.name.first}} {{user.name.last}}</a>
+  </li>
+</ul>
